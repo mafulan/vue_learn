@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="改变" @click="change" />
+        <input type="button" value=" 长长 " @click="gen()" />
+        <div  v-bind:style="{width: width+'px','height': '80px','background-color': 'red'}"  ></div>
+        <div  v-bind:style="obj"  ></div>
+        <div  v-bind:style="[obj,obj2]"  ></div>
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+let vm = new Vue({
+    el:"#app",
+    data:{
+        width:200,
+        obj:{
+             width: '200px',
+            'height': '50px',
+            'background-color': 'blue'
+        },
+        obj2:{
+            border:"5px solid green"
+        }
+    },
+    methods:{
+        change:function(){
+            this.width++;
+        },
+        gen:function(){
+           let myTimer =  setInterval(()=>{
+                this.width++;
+                this.obj.height = parseInt(this.obj.height)+1+"px";
+
+                if(this.width>=500){
+                    window.clearInterval(myTimer);
+                }         
+                //不用dom操作（dom操作由vue框架完成）       
+            },20);
+        }
+    }
+});
+
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <!---声明式渲染-->
+        <p>{{msg}}：{{name}}</p>
+    </div>
+    <input type="button" value="修改" onclick="change()" >
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+//vue库里有一个构造函数Vue，用来创建vue对象。
+let vm = new Vue({
+    el:"#box",//el:就是element的缩写
+    data:{
+        msg:"hello",
+        name:"张三疯"
+    }
+});
+
+function change(){
+    vm.name="李四疯"; //在js里改变了数据，那么html中，也会跟着改变，这是数据驱动。
+}
+
+</script>

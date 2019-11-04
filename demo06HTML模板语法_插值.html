@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <p v-text="name"></p>
+        <p v-text="name">hello:</p>
+        <p>{{name}}</p>
+        <p>hello:{{name}}</p>
+        <p v-html="str"></p>
+        <p v-bind:id="tt" ></p>
+        <p>{{age+5}}</p>
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+
+//模板语法：就是vue中规定的html应该咋写（指令）
+
+let vm = new Vue({
+    el:"#box",
+    data:{
+        name:"张三疯",
+        str:"<h1>我是标题</h1>",
+        tt:"pId01",
+        age:12
+    },
+});
+
+</script>

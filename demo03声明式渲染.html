@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <!---声明式渲染：你只需要告诉计算机，你要把哪个数据显示在html中哪个位置就行-->
+        <p>{{msg}}</p>
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+let vm = new Vue({
+    el:"#box",
+    data:{
+        msg:"hello"
+    }
+});
+
+</script>

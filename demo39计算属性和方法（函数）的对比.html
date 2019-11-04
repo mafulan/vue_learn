@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="改变" @click="change" />        
+        <div>{{msg}}</div>
+        <div>{{reverseMsg}}</div>
+        <!--第二次使用计算属性：reverseMsg时，不用再计算了，因为第一次已经缓存了，计算属性比函数性能好-->
+        <div>{{reverseMsg}}</div>
+        <div>{{reverseMsg}}</div>
+        <div>函数方式的翻转：{{reverseMsgf()}}</div>
+        <!--每次调用reverseMsgf()时，都需要计算了-->
+        <div>函数方式的翻转：{{reverseMsgf()}}</div>
+        <div>函数方式的翻转：{{reverseMsgf()}}</div>
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+let vm = new Vue({
+    el:"#app",
+    data:{
+        msg:"hello"
+    },
+    computed:{
+        reverseMsg:function(){
+            return this.msg.split('').reverse().join('');
+        }
+    },
+    methods:{
+        reverseMsgf:function(){
+            return this.msg.split('').reverse().join('');
+        },
+        change:function(){
+            this.msg="what are you 弄啥哩";
+        }
+    }
+});
+
+</script>

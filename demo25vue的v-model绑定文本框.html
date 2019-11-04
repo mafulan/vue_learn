@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            #parentBox{
+                width: 300px;
+                height: 300px;
+                background-color: red;
+                overflow:auto;
+            }
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+        <input type="text" v-model="content"  ><span>{{content}}</span><br/>
+        <!--v-model就是个语法糖（糖纸）：等价于v-bind和v-on:input事件 -->
+        <input type="text" v-bind:value="content2" v-on:input="change"  ><span>{{content2}}</span>
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+let vm = new Vue({
+    el:"#app",
+    data:{
+        msg:"hi",
+        content:"张三疯",
+        content2:'李四疯'
+    },
+    methods:{
+        change:function(){
+            this.content2 = event.target.value;
+        }
+    }
+});
+
+</script>

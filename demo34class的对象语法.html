@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .redbox{
+            width: 100px;
+            height: 80px;
+            background-color: red;
+        }
+        .blueBox{
+            background-color:blue;
+        }
+        .greenBorder{
+            border: 5px solid green;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="改变" @click="change" />
+        <div class="redbox"  v-bind:class="{blueBox:isBlue,greenBorder:isGreen}"></div>
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+let vm = new Vue({
+    el:"#app",
+    data:{
+        isBlue:true,
+        isGreen:true
+    },
+    methods:{
+        change:function(){
+            this.isBlue = !this.isBlue;
+        }
+    }
+});
+
+</script>

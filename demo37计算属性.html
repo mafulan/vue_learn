@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="改变" @click="change" />        
+        <div>{{msg}}</div>
+        <div>{{reverseMsg}}</div>
+        <div>{{reverseMsg}}</div>
+        <div>{{reverseMsg}}</div>
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+let vm = new Vue({
+    el:"#app",
+    data:{
+        msg:"hello"
+    },
+    computed:{
+        reverseMsg:function(){
+            return this.msg.split('').reverse().join('');
+        }
+    },
+    methods:{       
+        change:function(){
+            this.msg="what are you 弄啥哩";
+        }
+    }
+});
+
+</script>
